@@ -1,11 +1,12 @@
 import { ThemeProvider } from 'styled-components'
+import { Transactions } from './pages/Transactions'
 import { GlobalStyles } from './styles/global'
 import { defaultTheme } from './styles/themes/defaultTheme'
 
-export const App = () => {
+export const App: React.FC = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <h1>Cachorro branco</h1>
+      <Transactions />
       <GlobalStyles />
     </ThemeProvider>
   )
