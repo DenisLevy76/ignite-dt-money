@@ -1,0 +1,55 @@
+import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react';
+import { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
+import { priceFormatter } from '../../utils/priceFormatter';
+import { SumarryContainer, SumarryItem } from './styles';
+
+export const SummaryComponent: React.FC = () => {
+  const theme = useContext(ThemeContext);
+  const { transactions } = useContext(TransactionsContext);
+  const { income, outcome, total } = transactions.reduce(
+    (accumulator, transaction) => {
+      if (transaction.type === 'income') {
+        accumulator.income += transaction.price;
+        accumulator.total += transaction.price;
+      } else {
+        accumulator.outcome += transaction.price;
+        accumulator.total -= transaction.price;
+      }
+
+      return accumulator;
+    },
+    {
+      income: 0,
+      outcome: 0,
+      total: 0,
+    }
+  );
+
+  return (
+    <SumarryContainer>
+      <SumarryItem>
+        <header>
+          <h4>Entrada</h4>
+          <ArrowCircleUp size={32} color={theme['green-500']} />
+        </header>
+        <strong>{priceFormatter(income)}</strong>
+      </SumarryItem>
+      <SumarryItem>
+        <header>
+          <h4>Saída</h4>
+          <ArrowCircleDown size={32} color={theme['red-500']} />
+        </header>
+        <strong>- {priceFormatter(outcome)}</strong>
+      </SumarryItem>
+      <SumarryItem color={total > 0 ? 'green' : 'red'}>
+        <header>
+          <h4>Total</h4>
+          <CurrencyDollar size={32} color={theme['gray-100']} />
+        </header>
+        <strong>{priceFormatter(total)}</strong>
+      </SumarryItem>
+    </SumarryContainer>
+  );
+};

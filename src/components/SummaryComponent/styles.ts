@@ -6,10 +6,10 @@ export const SumarryContainer = styled.section`
   gap: 2rem;
 `;
 
-export const SumarryItem = styled.article<{ primary?: boolean }>`
+export const SumarryItem = styled.article<{ color?: 'gray' | 'green' | 'red' }>`
 display: flex;
     flex-direction: column;
-    background: ${({ theme, primary = true }) => primary ? theme['gray-600'] : theme['green-500']};
+    background: ${({ theme, color = 'gray' }) => color === 'gray' ? theme['gray-600'] : color === 'green' ? theme['green-700'] : theme['red-500']};
     padding: 1.5rem;
     border-radius: 8px;
 

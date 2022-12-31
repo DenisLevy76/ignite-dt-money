@@ -1,3 +1,5 @@
+import { dateFormatter } from '../../../../utils/dateFormatter';
+import { priceFormatter } from '../../../../utils/priceFormatter';
 import { PriceHighlight, TableItem } from './styles';
 import { TransactionComponentProps } from './types';
 
@@ -8,10 +10,11 @@ export const TransactionComponent: React.FC<TransactionComponentProps> = ({
     <TableItem>
       <td>{description}</td>
       <PriceHighlight color={type === 'income' ? 'green' : 'red'}>
-        {type === 'income' ? `R$ ${price}` : `- R$ ${price}`}
+        {type === 'outcome' && '- '}
+        {priceFormatter(price)}
       </PriceHighlight>
       <td>{category}</td>
-      <td className="date">{new Date(createdAt).toISOString()}</td>
+      <td className="date">{dateFormatter(new Date(createdAt))}</td>
     </TableItem>
   );
 };
