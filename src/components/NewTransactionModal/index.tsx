@@ -1,8 +1,14 @@
-import { CloseModalButton, ModalContent, StyledOverlay } from './styles';
+import {
+  CloseModalButton,
+  ModalContent,
+  StyledOverlay,
+  TransactionRadioButton,
+  TransactionRadioGroup,
+} from './styles';
 import * as Dialog from '@radix-ui/react-dialog';
 import { ButtonComponent } from '../HeaderComponent/styles';
 import { InputComponent } from '../inputComponent';
-import { X } from 'phosphor-react';
+import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react';
 
 export const NewTransactionModal: React.FC = () => {
   return (
@@ -24,7 +30,16 @@ export const NewTransactionModal: React.FC = () => {
               <InputComponent type="text" placeholder="Descrição" required />
               <InputComponent type="number" placeholder="Preço" required />
               <InputComponent type="number" placeholder="Categoria" required />
-
+              <TransactionRadioGroup>
+                <TransactionRadioButton variant="income" value="income">
+                  <ArrowCircleUp size={24} />
+                  Entrada
+                </TransactionRadioButton>
+                <TransactionRadioButton variant="outcome" value="outcome">
+                  <ArrowCircleDown size={24} />
+                  Saída
+                </TransactionRadioButton>
+              </TransactionRadioGroup>
               <ButtonComponent type="submit">Cadastrar</ButtonComponent>
             </form>
           </ModalContent>

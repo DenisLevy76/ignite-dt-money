@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import * as Dialog from '@radix-ui/react-dialog';
+import * as RadioGroup from '@radix-ui/react-radio-group';
 
 export const StyledOverlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -39,6 +40,45 @@ export const ModalContent = styled(Dialog.Content)`
     }
   }
 `;
+
+export const TransactionRadioGroup = styled(RadioGroup.Root)`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+`
+
+export const TransactionRadioButton = styled(RadioGroup.Item) <{ variant?: 'income' | 'outcome' }>`
+  ${({ theme, variant }) => css`
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    background: ${theme['gray-700']};
+    color: ${theme['gray-300']};
+    border: none;
+
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    svg {
+      color: ${variant === 'income' ? theme['green-300'] : theme['red-300']};
+    }
+
+    &:hover {
+      background: ${theme['gray-600']};
+    }
+
+    &[data-state="checked"] {
+      background: ${variant === 'income' ? theme['green-500'] : theme['red-500']};
+      color: ${theme['gray-100']};
+
+      svg {
+        color: ${theme['gray-100']};
+      }
+    }
+  `}
+`
 
 export const CloseModalButton = styled(Dialog.Close)`
   background-color: transparent;
