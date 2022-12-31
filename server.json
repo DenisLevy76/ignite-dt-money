@@ -5,24 +5,40 @@
       "description": "Desenvolvimento de site",
       "type": "income",
       "category": "Venda",
-      "price": 14000,
+      "price": 3000,
       "createdAt": "2022-07-29T19:36:44.505Z"
     },
     {
-      "id": 2,
-      "description": "Hambúrguer",
+      "category": "Educação",
+      "description": "Curso de godot",
+      "price": 27,
       "type": "outcome",
-      "category": "Alimentação",
-      "price": 50,
-      "createdAt": "2022-07-29T19:30:44.505Z"
+      "createdAt": "2022-12-31T21:18:44.464Z",
+      "id": 3
     },
     {
-      "id": 3,
-      "description": "Hambúrguer",
+      "category": "Laser",
+      "description": "Compra de um galaxy a33",
+      "price": 1400,
       "type": "outcome",
-      "category": "Alimentação",
-      "price": 5000,
-      "createdAt": "2022-07-29T19:30:44.505Z"
+      "createdAt": "2022-12-31T21:19:42.214Z",
+      "id": 4
+    },
+    {
+      "category": "Trabalho",
+      "description": "Salário do estágio",
+      "price": 500,
+      "type": "income",
+      "createdAt": "2022-12-31T21:22:52.889Z",
+      "id": 5
+    },
+    {
+      "category": "Tecnologia",
+      "description": "Capinha de celular",
+      "price": 60,
+      "type": "outcome",
+      "createdAt": "2022-12-31T21:36:12.924Z",
+      "id": 6
     }
   ]
 }

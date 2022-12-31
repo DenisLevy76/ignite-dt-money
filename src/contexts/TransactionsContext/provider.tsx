@@ -1,6 +1,8 @@
 import { ReactNode, useEffect, useState } from 'react';
 import { TransactionsContext } from '.';
+import { api } from '../../lib/axios';
 import { ITransaction } from '../../pages/Transactions/components/TransactionComponent/types';
+import { createTransactionsProps } from './types';
 
 export const TransactionsContextProvider: React.FC<{
   children: ReactNode;
@@ -8,15 +10,25 @@ export const TransactionsContextProvider: React.FC<{
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
   const getTransactions = async (query?: string) => {
-    const url = new URL('http://localhost:3333/transactions');
+    const { data } = await api.get<ITransaction[] | null>('transactions', {
+      params: { q: query, _sort: 'createdAt', _order: 'desc' },
+    });
 
-    if (query) url.searchParams.append('q', query);
+    if (data) setTransactions(data);
+  };
 
-    const transactionsResponse = await fetch(url);
+  const createTransaction = async (transaction: createTransactionsProps) => {
+    const { category, description, price, type } = transaction;
 
-    const transactionsJSON: ITransaction[] = await transactionsResponse.json();
+    const { data } = await api.post<ITransaction>('/transactions', {
+      category,
+      description,
+      price,
+      type,
+      createdAt: new Date(),
+    });
 
-    if (transactionsJSON) setTransactions(transactionsJSON);
+    setTransactions((state) => [data, ...state]);
   };
 
   useEffect(() => {
@@ -24,7 +36,9 @@ export const TransactionsContextProvider: React.FC<{
   }, []);
 
   return (
-    <TransactionsContext.Provider value={{ transactions, getTransactions }}>
+    <TransactionsContext.Provider
+      value={{ transactions, getTransactions, createTransaction }}
+    >
       {children}
     </TransactionsContext.Provider>
   );

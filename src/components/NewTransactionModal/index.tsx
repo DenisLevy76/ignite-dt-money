@@ -13,6 +13,9 @@ import * as zod from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { Controller } from 'react-hook-form';
+import { api } from '../../lib/axios';
+import { useContext } from 'react';
+import { TransactionsContext } from '../../contexts/TransactionsContext';
 
 const newTransactionFormSchema = zod.object({
   description: zod.string().min(5).max(100),
@@ -21,25 +24,34 @@ const newTransactionFormSchema = zod.object({
   type: zod.enum(['income', 'outcome']),
 });
 
-type newTransactionFormData = zod.infer<typeof newTransactionFormSchema>;
+export type NewTransactionFormData = zod.infer<typeof newTransactionFormSchema>;
 
 export const NewTransactionModal: React.FC = () => {
   const {
     control,
+    formState: { isSubmitting },
     register,
     handleSubmit,
-    formState: { isSubmitting },
-  } = useForm<newTransactionFormData>({
+    reset,
+  } = useForm<NewTransactionFormData>({
     resolver: zodResolver(newTransactionFormSchema),
     defaultValues: {
       type: 'income',
     },
   });
+  const { createTransaction } = useContext(TransactionsContext);
 
-  const handleCreateNewTransaction = async (data: newTransactionFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  const handleCreateNewTransaction = async (data: NewTransactionFormData) => {
+    const { category, description, price, type } = data;
 
-    console.log(data);
+    createTransaction({
+      category,
+      description,
+      price,
+      type,
+    });
+
+    reset();
   };
 
   return (

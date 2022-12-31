@@ -8,11 +8,11 @@ import { defaultTheme } from './styles/themes/defaultTheme';
 export const App: React.FC = () => {
   return (
     <ThemeProvider theme={defaultTheme}>
-      <HeaderComponent />
       <TransactionsContextProvider>
+        <HeaderComponent />
         <Transactions />
+        <GlobalStyles />
       </TransactionsContextProvider>
-      <GlobalStyles />
     </ThemeProvider>
   );
 };
