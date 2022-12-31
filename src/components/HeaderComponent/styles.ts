@@ -19,6 +19,7 @@ export const ButtonComponent = styled.button`
   font-weight: bold;
   cursor: pointer;
   transition: background-color 0.2s;
+  border: none;
 
   &:hover:not(:disabled) {
     background-color: ${({ theme }) => theme['green-300']};

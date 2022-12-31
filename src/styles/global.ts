@@ -13,11 +13,11 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme['gray-800']};
-    color: ${({ theme }) => theme['gray-100']};
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, textarea, button {
+    color: ${({ theme }) => theme['gray-100']};
     font: 400 1rem 'Roboto', sans-serif;
   }
 `

@@ -9,7 +9,7 @@ export const SumarryContainer = styled.section`
 export const SumarryItem = styled.article<{ primary?: boolean }>`
 display: flex;
     flex-direction: column;
-    background: ${({ theme, primary = true }) => primary ? theme['gray-600'] : theme['green-700']};
+    background: ${({ theme, primary = true }) => primary ? theme['gray-600'] : theme['green-500']};
     padding: 1.5rem;
     border-radius: 8px;
 
