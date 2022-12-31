@@ -13,8 +13,8 @@ import * as zod from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm, Controller } from 'react-hook-form'
 
-import { useContext } from 'react'
 import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { useContextSelector } from 'use-context-selector'
 
 const newTransactionFormSchema = zod.object({
   description: zod.string().min(5).max(100),
@@ -38,7 +38,11 @@ export const NewTransactionModal: React.FC = () => {
       type: 'income',
     },
   })
-  const { createTransaction } = useContext(TransactionsContext)
+
+  const createTransaction = useContextSelector(
+    TransactionsContext,
+    (context) => context.createTransaction,
+  )
 
   const handleCreateNewTransaction = async (data: NewTransactionFormData) => {
     const { category, description, price, type } = data
