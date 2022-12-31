@@ -1,14 +1,14 @@
-import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
-import { useSummary } from '../../hooks/useSummary';
-import { priceFormatter } from '../../utils/priceFormatter';
-import { SumarryContainer, SumarryItem } from './styles';
+import { ArrowCircleUp, ArrowCircleDown, CurrencyDollar } from 'phosphor-react'
+import { useContext } from 'react'
+import { ThemeContext } from 'styled-components'
+import { useSummary } from '../../hooks/useSummary'
+import { priceFormatter } from '../../utils/priceFormatter'
+import { SumarryContainer, SumarryItem } from './styles'
 
 export const SummaryComponent: React.FC = () => {
-  const theme = useContext(ThemeContext);
+  const theme = useContext(ThemeContext)
 
-  const { income, outcome, total } = useSummary();
+  const { income, outcome, total } = useSummary()
 
   return (
     <SumarryContainer>
@@ -34,5 +34,5 @@ export const SummaryComponent: React.FC = () => {
         <strong>{priceFormatter(total)}</strong>
       </SumarryItem>
     </SumarryContainer>
-  );
-};
+  )
+}

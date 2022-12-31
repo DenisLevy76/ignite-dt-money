@@ -1,6 +1,6 @@
-import { ContainerComponent } from '../ContainerComponent';
-import { NewTransactionModal } from '../NewTransactionModal';
-import { HeaderContainer } from './styles';
+import { ContainerComponent } from '../ContainerComponent'
+import { NewTransactionModal } from '../NewTransactionModal'
+import { HeaderContainer } from './styles'
 
 export const HeaderComponent: React.FC = () => {
   return (
@@ -10,5 +10,5 @@ export const HeaderComponent: React.FC = () => {
         <NewTransactionModal />
       </ContainerComponent>
     </HeaderContainer>
-  );
-};
+  )
+}

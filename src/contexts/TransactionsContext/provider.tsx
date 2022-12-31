@@ -1,24 +1,24 @@
-import { ReactNode, useEffect, useState } from 'react';
-import { TransactionsContext } from '.';
-import { api } from '../../lib/axios';
-import { ITransaction } from '../../pages/Transactions/components/TransactionComponent/types';
-import { createTransactionsProps } from './types';
+import { ReactNode, useEffect, useState } from 'react'
+import { TransactionsContext } from '.'
+import { api } from '../../lib/axios'
+import { ITransaction } from '../../pages/Transactions/components/TransactionComponent/types'
+import { createTransactionsProps } from './types'
 
 export const TransactionsContextProvider: React.FC<{
-  children: ReactNode;
+  children: ReactNode
 }> = ({ children }) => {
-  const [transactions, setTransactions] = useState<ITransaction[]>([]);
+  const [transactions, setTransactions] = useState<ITransaction[]>([])
 
   const getTransactions = async (query?: string) => {
     const { data } = await api.get<ITransaction[] | null>('transactions', {
       params: { q: query, _sort: 'createdAt', _order: 'desc' },
-    });
+    })
 
-    if (data) setTransactions(data);
-  };
+    if (data) setTransactions(data)
+  }
 
   const createTransaction = async (transaction: createTransactionsProps) => {
-    const { category, description, price, type } = transaction;
+    const { category, description, price, type } = transaction
 
     const { data } = await api.post<ITransaction>('/transactions', {
       category,
@@ -26,14 +26,14 @@ export const TransactionsContextProvider: React.FC<{
       price,
       type,
       createdAt: new Date(),
-    });
+    })
 
-    setTransactions((state) => [data, ...state]);
-  };
+    setTransactions((state) => [data, ...state])
+  }
 
   useEffect(() => {
-    getTransactions();
-  }, []);
+    getTransactions()
+  }, [])
 
   return (
     <TransactionsContext.Provider
@@ -41,5 +41,5 @@ export const TransactionsContextProvider: React.FC<{
     >
       {children}
     </TransactionsContext.Provider>
-  );
-};
+  )
+}

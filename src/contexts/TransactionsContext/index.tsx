@@ -1,4 +1,4 @@
-import { createContext } from 'react';
-import { TransactionsContextData } from './types';
+import { createContext } from 'react'
+import { TransactionsContextData } from './types'
 
-export const TransactionsContext = createContext({} as TransactionsContextData);
+export const TransactionsContext = createContext({} as TransactionsContextData)

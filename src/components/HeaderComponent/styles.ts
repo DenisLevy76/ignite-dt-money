@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
   background: ${({ theme }) => theme['gray-900']};
@@ -9,7 +9,7 @@ export const HeaderContainer = styled.header`
     align-items: center;
     justify-content: space-between;
   }
-`;
+`
 
 export const ButtonComponent = styled.button`
   padding: 0.75rem 1.25rem;

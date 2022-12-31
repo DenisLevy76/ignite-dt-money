@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { ButtonComponent } from '../../../../components/HeaderComponent/styles';
+import styled from 'styled-components'
+import { ButtonComponent } from '../../../../components/HeaderComponent/styles'
 
 export const SearchFormContainer = styled.form`
   padding-top: 5rem;
@@ -9,7 +9,7 @@ export const SearchFormContainer = styled.form`
   @media (max-width: 500px) {
     flex-direction: column;
   }
-`;
+`
 
 export const SearchButton = styled(ButtonComponent)`
   background: transparent;

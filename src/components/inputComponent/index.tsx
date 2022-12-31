@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const InputComponent = styled.input`
   background: ${({ theme }) => theme['gray-900']};
@@ -7,4 +7,4 @@ export const InputComponent = styled.input`
   font-size: 1rem;
   border: none;
   width: 100%;
-`;
+`

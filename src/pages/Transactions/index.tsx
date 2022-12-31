@@ -1,13 +1,13 @@
-import { useContext } from 'react';
-import { ContainerComponent } from '../../components/ContainerComponent';
-import { SummaryComponent } from '../../components/SummaryComponent';
-import { TransactionsContext } from '../../contexts/TransactionsContext';
-import { SearchForm } from './components/SearchForm';
-import { TransactionComponent } from './components/TransactionComponent';
-import { TransactionsPageContainer } from './styles';
+import { useContext } from 'react'
+import { ContainerComponent } from '../../components/ContainerComponent'
+import { SummaryComponent } from '../../components/SummaryComponent'
+import { TransactionsContext } from '../../contexts/TransactionsContext'
+import { SearchForm } from './components/SearchForm'
+import { TransactionComponent } from './components/TransactionComponent'
+import { TransactionsPageContainer } from './styles'
 
 export const Transactions: React.FC = () => {
-  const { transactions } = useContext(TransactionsContext);
+  const { transactions } = useContext(TransactionsContext)
 
   return (
     <TransactionsPageContainer>
@@ -26,5 +26,5 @@ export const Transactions: React.FC = () => {
         </table>
       </ContainerComponent>
     </TransactionsPageContainer>
-  );
-};
+  )
+}

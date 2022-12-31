@@ -25,5 +25,6 @@ export const TableItem = styled.tr`
 
 export const PriceHighlight = styled.td<{ color?: 'green' | 'red' }>`
   display: block;
-  color: ${({ theme, color }) => color === 'green' ? theme['green-500'] : theme['red-500']};
+  color: ${({ theme, color }) =>
+    color === 'green' ? theme['green-500'] : theme['red-500']};
 `

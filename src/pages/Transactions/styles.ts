@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const TransactionsPageContainer = styled.main`
   margin-top: -3.5rem;
@@ -12,5 +12,4 @@ export const TransactionsPageContainer = styled.main`
       gap: 0.5rem;
     }
   }
-`;
-
+`

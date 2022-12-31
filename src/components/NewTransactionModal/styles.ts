@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
-import * as Dialog from '@radix-ui/react-dialog';
-import * as RadioGroup from '@radix-ui/react-radio-group';
+import styled, { css } from 'styled-components'
+import * as Dialog from '@radix-ui/react-dialog'
+import * as RadioGroup from '@radix-ui/react-radio-group'
 
 export const StyledOverlay = styled(Dialog.Overlay)`
   position: fixed;
@@ -13,8 +13,7 @@ export const StyledOverlay = styled(Dialog.Overlay)`
   justify-content: center;
 
   background: #00000075;
-`;
-
+`
 
 export const ModalContent = styled(Dialog.Content)`
   min-width: 32rem;
@@ -34,7 +33,7 @@ export const ModalContent = styled(Dialog.Content)`
     flex-direction: column;
     gap: 1rem;
 
-    > button[type="submit"] {
+    > button[type='submit'] {
       margin-top: 2.5rem;
       padding: 1rem 0;
     }
@@ -45,7 +44,7 @@ export const ModalContent = styled(Dialog.Content)`
     min-width: 0;
     width: 95%;
   }
-`;
+`
 
 export const TransactionRadioGroup = styled(RadioGroup.Root)`
   display: grid;
@@ -53,7 +52,9 @@ export const TransactionRadioGroup = styled(RadioGroup.Root)`
   gap: 1rem;
 `
 
-export const TransactionRadioButton = styled(RadioGroup.Item) <{ variant?: 'income' | 'outcome' }>`
+export const TransactionRadioButton = styled(RadioGroup.Item)<{
+  variant?: 'income' | 'outcome'
+}>`
   ${({ theme, variant }) => css`
     padding: 1rem 1.25rem;
     border-radius: 8px;
@@ -75,8 +76,10 @@ export const TransactionRadioButton = styled(RadioGroup.Item) <{ variant?: 'inco
       background: ${theme['gray-600']};
     }
 
-    &[data-state="checked"] {
-      background: ${variant === 'income' ? theme['green-500'] : theme['red-500']};
+    &[data-state='checked'] {
+      background: ${variant === 'income'
+        ? theme['green-500']
+        : theme['red-500']};
       color: ${theme['gray-100']};
 
       svg {

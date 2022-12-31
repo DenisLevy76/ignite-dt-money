@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ContainerComponent = styled.div`
   width: 100%;
@@ -8,4 +8,4 @@ export const ContainerComponent = styled.div`
   @media (max-width: 1120px) {
     padding: 0 1rem;
   }
-`;
+`

@@ -1,7 +1,7 @@
-import { dateFormatter } from '../../../../utils/dateFormatter';
-import { priceFormatter } from '../../../../utils/priceFormatter';
-import { PriceHighlight, TableItem } from './styles';
-import { TransactionComponentProps } from './types';
+import { dateFormatter } from '../../../../utils/dateFormatter'
+import { priceFormatter } from '../../../../utils/priceFormatter'
+import { PriceHighlight, TableItem } from './styles'
+import { TransactionComponentProps } from './types'
 
 export const TransactionComponent: React.FC<TransactionComponentProps> = ({
   transaction: { category, description, type, price, createdAt },
@@ -16,5 +16,5 @@ export const TransactionComponent: React.FC<TransactionComponentProps> = ({
       <td>{category}</td>
       <td className="date">{dateFormatter(new Date(createdAt))}</td>
     </TableItem>
-  );
-};
+  )
+}
