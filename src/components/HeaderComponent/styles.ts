@@ -24,4 +24,9 @@ export const ButtonComponent = styled.button`
   &:hover:not(:disabled) {
     background-color: ${({ theme }) => theme['green-300']};
   }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
 `

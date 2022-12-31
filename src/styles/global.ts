@@ -20,4 +20,16 @@ export const GlobalStyles = createGlobalStyle`
     color: ${({ theme }) => theme['gray-100']};
     font: 400 1rem 'Roboto', sans-serif;
   }
+
+  @media (max-width: 580px) {
+    html {
+      font-size: 87.5%;
+    }
+  }
+
+  @media (max-width: 380px) {
+    html {
+      font-size: 75%;
+    }
+  }
 `

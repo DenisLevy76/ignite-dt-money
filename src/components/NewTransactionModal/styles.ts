@@ -39,6 +39,12 @@ export const ModalContent = styled(Dialog.Content)`
       padding: 1rem 0;
     }
   }
+
+  @media (max-width: 800px) {
+    padding: 1rem;
+    min-width: 0;
+    width: 95%;
+  }
 `;
 
 export const TransactionRadioGroup = styled(RadioGroup.Root)`

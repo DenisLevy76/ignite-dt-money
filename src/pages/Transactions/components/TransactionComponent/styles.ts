@@ -7,9 +7,19 @@ export const TableItem = styled.tr`
   color: ${({ theme }) => theme['gray-300']};
   padding: 1.25rem 2rem;
   border-radius: 8px;
+  gap: 1rem;
 
   > .date {
     text-align: right;
+  }
+
+  @media (max-width: 500px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+
+    > .date {
+      text-align: center;
+    }
   }
 `
 

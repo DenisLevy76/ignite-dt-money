@@ -7,10 +7,12 @@ export const TransactionsContextProvider: React.FC<{
 }> = ({ children }) => {
   const [transactions, setTransactions] = useState<ITransaction[]>([]);
 
-  const getTransactions = async () => {
-    const transactionsResponse = await fetch(
-      'http://localhost:3333/transactions'
-    );
+  const getTransactions = async (query?: string) => {
+    const url = new URL('http://localhost:3333/transactions');
+
+    if (query) url.searchParams.append('q', query);
+
+    const transactionsResponse = await fetch(url);
 
     const transactionsJSON: ITransaction[] = await transactionsResponse.json();
 
@@ -22,7 +24,7 @@ export const TransactionsContextProvider: React.FC<{
   }, []);
 
   return (
-    <TransactionsContext.Provider value={{ transactions }}>
+    <TransactionsContext.Provider value={{ transactions, getTransactions }}>
       {children}
     </TransactionsContext.Provider>
   );

@@ -4,6 +4,10 @@ export const SumarryContainer = styled.section`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+
+  @media (max-width: 800px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const SumarryItem = styled.article<{ color?: 'gray' | 'green' | 'red' }>`
